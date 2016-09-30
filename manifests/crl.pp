@@ -12,5 +12,5 @@ class gridcert::crl {
     enable   => true,
     provider => redhat,
     require  => [ Package['fetch-crl'], Package['ca-policy-egi-core'] ],
-  }  
+  }
 }
