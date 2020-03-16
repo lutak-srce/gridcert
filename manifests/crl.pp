@@ -10,7 +10,6 @@ class gridcert::crl {
   service { 'fetch-crl-cron':
     ensure   => running,
     enable   => true,
-    provider => redhat,
     require  => [ Package['fetch-crl'], Package['ca-policy-egi-core'] ],
   }
 }
