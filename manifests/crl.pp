@@ -8,8 +8,8 @@ class gridcert::crl {
     ensure  => latest,
   }
   service { 'fetch-crl-cron':
-    ensure   => running,
-    enable   => true,
-    require  => [ Package['fetch-crl'], Package['ca-policy-egi-core'] ],
+    ensure  => running,
+    enable  => true,
+    require => [ Package['fetch-crl'], Package['ca-policy-egi-core'] ],
   }
 }
