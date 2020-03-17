@@ -6,6 +6,7 @@ PuppetLint.configuration.send('relative')
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 PuppetLint.configuration.send('disable_documentation')
+PuppetLint.configuration.send('disable_puppet_url_without_modules')
 
 desc 'Generate pooler nodesets'
 task :gen_nodeset do
