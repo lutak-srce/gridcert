@@ -3,16 +3,17 @@
 # This module installs host grid certificate
 # and key
 #
-class gridcert {
+class gridcert (
+  $hostcert = 'puppet:///private/gridcert/hostcert.pem',
+  $hostkey  = 'puppet:///private/gridcert/hostkey.pem',
+) {
   include gridcert::package
   file { '/etc/grid-security/hostcert.pem':
     ensure  => file,
     owner   => root,
     group   => root,
     mode    => '0444',
-    source  => [
-      'puppet:///private/gridcert/hostcert.pem',
-    ],
+    source  => $hostcert,
     require => Package['ca-policy-egi-core'],
   }
   file { '/etc/grid-security/hostkey.pem':
@@ -20,9 +21,7 @@ class gridcert {
     owner   => root,
     group   => root,
     mode    => '0400',
-    source  => [
-      'puppet:///private/gridcert/hostkey.pem',
-    ],
+    source  => $hostkey,
     require => Package['ca-policy-egi-core'],
   }
 }
